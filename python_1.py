@@ -7,7 +7,7 @@ bot = telebot.TeleBot(token)
 @bot.message_handler(regexp="Hello")
 def say_hello(massage):
     
-    bot.send_message(massage.chat.id, f"Hello, {massage.from_user.first_name}. Could you print /start for beginnig?")
+    bot.send_message(massage.chat.id, f"Hello, {massage.from_user.first_name}. Could you click /start for beginnig?")
 
 @bot.message_handler(commands=["start"])
 def start_bot(massage):
