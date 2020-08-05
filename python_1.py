@@ -4,15 +4,12 @@ import requests
 
 token = "1303784307:AAGlce7csEvLoP6OiRPaWU9iDqCs07q8rPw"
 bot = telebot.TeleBot(token)
-@bot.message_handler(regexp="Hello.")
-def say_hello(massage):
-    
-    bot.send_message(massage.chat.id, f"Hello, {massage.from_user.first_name}.Could you click on /start for beginnig?")
+
 
 @bot.message_handler(commands=["start"])
 def start_bot(massage):
     msg = "Some voluts -> /valute \nWeather -> /weather"
-    bot.send_message(massage.chat.id, f"Welcome. It's my first telegram bot.\n{msg}")
+    bot.send_message(massage.chat.id, f"Welcome {massage.from_user.first_name}. It's my first telegram bot.\n{msg}")
 @bot.message_handler(commands=["valute"])
 def get_valute(massage):
     url = 'https://www.cbr-xml-daily.ru/daily_json.js'
@@ -37,7 +34,4 @@ def get_weather(massage):
     data = requests.get(url).json()
     bot.send_message(massage.chat.id, f"{city} - {(data['main']['temp'] - 273.15) // 1 }")
 
-
-
-
-bot.polling()
+bot.polling(none_stop=True)
