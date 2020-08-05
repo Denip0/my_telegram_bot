@@ -26,7 +26,7 @@ def send_sticker(massage):
     id = 'CAACAgIAAxkBAAEBHMNfIFzETWHWGIkAAdaTYQABA7k_46PUAAKbDQACoKYKCpCuyIkxXtA7GgQ'
     bot.send_sticker(massage.chat.id, id)
 
-@bot.message_handler(commands='weather')
+@bot.message_handler(commands=['weather'])
 def get_city(massage):
     msg = bot.send_message(massage.chat.id, "City?")
     bot.register_next_step_handler(msg, get_weather)
