@@ -4,7 +4,7 @@ import requests
 
 token = "1303784307:AAGlce7csEvLoP6OiRPaWU9iDqCs07q8rPw"
 bot = telebot.TeleBot(token)
-@bot.message_handler(regexp="Hello")
+@bot.message_handler(regexp="Hello.")
 def say_hello(massage):
     
     bot.send_message(massage.chat.id, f"Hello, {massage.from_user.first_name}. Could you click on /start for beginnig?")
